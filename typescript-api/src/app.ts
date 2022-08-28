@@ -18,12 +18,10 @@ app.get("/movie", (req: Request, res: Response) => {
     connection()
     .then((connection) => {
         const result = connection.query("SELECT * FROM MOVIE");
-        console.log(result);
         connection.end();
         return result;
     })
     .then(function (rows) {
-        console.log(rows);
         res.send(rows);
     })
 });
