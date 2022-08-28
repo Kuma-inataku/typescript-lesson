@@ -1,4 +1,4 @@
-import express from "express";
+import express, {Request, Response} from "express";
 import * as mysql from "promise-mysql";
 import config from "./config";
 
@@ -13,4 +13,15 @@ app.listen(config.port, () => {
 const connection = async () => {
     return await mysql.createConnection(config.db);
 }
-// console.log(connection);
+
+app.get("/movie", (req: Request, res: Response) => {
+    connection()
+    .then((connection) => {
+        const result = connection.query("SELECT * FROM MOVIE");
+        connection.end();
+        return result;
+    })
+    .then(function (rows) {
+        res.send(rows);
+    })
+});
