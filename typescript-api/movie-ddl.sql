@@ -18,9 +18,6 @@ create table if not exists MOVIE
     UPDATED_AT         timestamp(3)    default current_timestamp(3) not null
 );
 
-INSERT INTO MOVIE(NAME)
-VALUES ('天気の子');
-INSERT INTO MOVIE(NAME)
-VALUES ('サマーウォーズ');
-INSERT INTO MOVIE(NAME)
-VALUES ('ジョゼと虎と魚たち');
+INSERT INTO MOVIE (NAME) VALUES ("horror");
+INSERT INTO MOVIE (NAME) VALUES ("action");
+INSERT INTO MOVIE (NAME) VALUES ("kids");
