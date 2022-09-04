@@ -14,6 +14,7 @@ const connection = async function() {
     return await mysql.createConnection(config.db);
 }
 
+console.log(123);
 app.get("/movie", (req: Request, res: Response) => {
     connection()
     .then((connection) => {
